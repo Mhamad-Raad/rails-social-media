@@ -60,11 +60,11 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Catalog of Things <a name="about-project"></a>
+# 📖 Rails Social Media <a name="about-project"></a>
 
 > in this rails project I will be making a small social media in which people can like, comment and share posts
 
-**Catalog of Things** is a console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games.
+**Rails Social Media** is an app in which you can share posts and other users including yoursel can like and comment, each user has their own profile in which shows some details about the user including the posts.
 
 ## 🛠 Built With <a name="built-with"></a>
 

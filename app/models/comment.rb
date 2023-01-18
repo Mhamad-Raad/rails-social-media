@@ -3,10 +3,8 @@ class Comment < ApplicationRecord
 
   def update_post_commentcount
     post = Post.find(post_id)
-
-    if(post.comments_count == nil)
-      post.comments_count = 0
-    end
+    _
+    post.comments_count = 0 if post.comments_count.nil?
 
     post.comments_count += 1
     post.save

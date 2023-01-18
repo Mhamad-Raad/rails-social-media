@@ -37,5 +37,4 @@ describe 'Post' do
       expect(my_model.five_comments).to eq(Comment.last(5))
     end
   end
-
 end

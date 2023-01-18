@@ -36,5 +36,4 @@ describe 'User Model' do
       expect(my_model.last_three_post).to eq(Post.last(3))
     end
   end
-
 end

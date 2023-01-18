@@ -20,5 +20,4 @@ class Post < ApplicationRecord
     user.posts_count += 1
     user.save
   end
-
 end

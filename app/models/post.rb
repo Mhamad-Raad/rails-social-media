@@ -3,6 +3,12 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
+  validates :title, length: {minimum: 1, maximum: 250}, allow_blank: false
+  validates :comments_count, numericality: { greater_than_or_equal_to: 0 }
+  validates :likes_count, numericality: { greater_than_or_equal_to: 0 }
+
+
+
   def delete_last
     Post.last.destroy
   end

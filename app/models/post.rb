@@ -7,10 +7,6 @@ class Post < ApplicationRecord
   validates :comments_count, numericality: { greater_than_or_equal_to: 0 }
   validates :likes_count, numericality: { greater_than_or_equal_to: 0 }
 
-  def delete_last
-    Post.last.destroy
-  end
-
   def five_comments
     Comment.last(5)
   end

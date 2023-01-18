@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :user, optional: true
+  belongs_to :author, class_name: 'User', optional: true
   has_many :comments
   has_many :likes
 
@@ -14,7 +14,7 @@ class Post < ApplicationRecord
   after_save :update_user_post_count
 
   def update_user_post_count
-    user = User.find(user_id)
+    user = User.find(author_id)
     user.posts_count = 0 if user.posts_count.nil?
 
     user.posts_count += 1

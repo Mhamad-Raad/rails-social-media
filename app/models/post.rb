@@ -12,6 +12,11 @@ class Post < ApplicationRecord
   end
 
   def update_user_postcount
+    user = User.find(user_id)
+    if(user.posts_count == nil)
+      user.posts_count = 0
+    end
+
     user.posts_count += 1
     user.save
   end

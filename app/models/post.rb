@@ -8,14 +8,17 @@ class Post < ApplicationRecord
   end
 
   def five_comments
-    Comment.first(5)
+    Comment.last(5)
   end
 
-  def update_user_postcount
+  after_save :update_user_post_count
+
+  def update_user_post_count
     user = User.find(user_id)
     user.posts_count = 0 if user.posts_count.nil?
 
     user.posts_count += 1
     user.save
   end
+
 end

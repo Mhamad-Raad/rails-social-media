@@ -1,7 +1,10 @@
 class Like < ApplicationRecord
   belongs_to :post, foreign_key: true, optional: true
+  belongs_to :user, foreign_key: true, optional: true
 
-  def update_post_likecount
+  after_save :update_post_like_count
+
+  def update_post_like_count
     post = Post.find(post_id)
 
     post.likes_count = 0 if post.likes_count.nil?

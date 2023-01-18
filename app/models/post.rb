@@ -3,9 +3,9 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  def delete_last
-    Post.last.destroy
-  end
+  validates :title, length: { minimum: 1, maximum: 250 }, allow_blank: false
+  validates :comments_count, numericality: { greater_than_or_equal_to: 0 }
+  validates :likes_count, numericality: { greater_than_or_equal_to: 0 }
 
   def five_comments
     Comment.last(5)
@@ -14,7 +14,7 @@ class Post < ApplicationRecord
   after_save :update_user_post_count
 
   def update_user_post_count
-    user = User.find(author_id)
+    user = User.find(user_id)
     user.posts_count = 0 if user.posts_count.nil?
 
     user.posts_count += 1

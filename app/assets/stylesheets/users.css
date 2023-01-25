@@ -22,4 +22,5 @@ main {
   align-items: center;
   justify-content: center;
   gap: 15px;
+  border: 3px solid rgb(74, 0, 131);
 }

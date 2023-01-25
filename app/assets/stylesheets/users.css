@@ -23,9 +23,3 @@ main {
   justify-content: center;
   gap: 15px;
 }
-
-body {
-  padding: 0;
-  margin: 0;
-  background-color: rgb(86, 86, 86);
-}

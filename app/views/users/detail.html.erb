@@ -1,2 +1,31 @@
-<h1>Users Detail<h1>
-<h1>Here is the user id route</h1>
+<%= stylesheet_link_tag "users_details" %>
+
+<main>
+  <div class="profile">
+    <div class="row1">
+      <img src=<%= @user.ImgUrl%> alt=<%= @user.ImgUrl%> />
+      <h1><%= @user.name %></h1>
+    </div>
+    <p> Posts Number: <%= @posts.length %></p>
+    <div class="bio">
+      <h2>BIO</h2>
+      <p><%= @user.bio %></p>
+    </div>
+
+    <div>
+      <% @posts.each do |post| %>
+        <div class="posts">
+          <h2><%= post.title %></h2>
+          <p><%= post.text %></p>
+        </div>
+        <% end %>
+    </div>
+
+    <a href='./<%= @user.id %>/posts'>asdasd</a>
+  </div>
+
+</main>
+
+
+
+

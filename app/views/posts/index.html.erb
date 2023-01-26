@@ -12,10 +12,11 @@
         <p><%= post.text %></p>
       </div>
       <div class="comments">
+      <h3>comments</h3>
         <% @comments.each do |comment| %>
           <% if comment.post_id == post.id %>
           <div class="comment">
-            <p><%= comment.text %></p>
+            <p><%= comment.user.name %>  <%= comment.text %></p>
           </div>
           <% end %>
         <% end %>

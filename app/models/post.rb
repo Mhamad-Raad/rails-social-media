@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
-  belongs_to :author, class_name: 'User', optional: true
-  has_many :comments
-  has_many :likes
+  belongs_to :author, class_name: 'User', counter_cache: :posts_counter
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :title, length: { minimum: 1, maximum: 250 }, allow_blank: false
   validates :comments_count, numericality: { greater_than_or_equal_to: 0 }

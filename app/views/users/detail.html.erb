@@ -3,25 +3,39 @@
 <main>
   <div class="profile">
     <div class="row1">
-      <img src=<%= @user.photo%> alt=<%= @user.photo%> />
+      <img src=<%= @user.photo %> alt=<%= @user.photo %> />
       <h1><%= @user.name %></h1>
     </div>
-    <p> Posts Number: <%= @posts.length %></p>
+    <p> Posts Number: <%= @user.posts_counter %></p>
     <div class="bio">
       <h2>BIO</h2>
       <p><%= @user.bio %></p>
     </div>
 
     <div>
-      <% @posts.each do |post| %>
-        <div class="posts">
-          <h2><%= post.title %></h2>
-          <p><%= post.text %></p>
-        </div>
+        
+        <% if @user.posts_counter > 0 %>
+        <h5>Posts</h5>
+        <br>
+        <% @user.last_three_posts_for_user.each.with_index(1) do |post, index| %>
+            <div class="post">
+              <h5>Post<%= "#" %> <%=index %> <%= post.Title %></h5>
+              <p><%= post.Text.truncate(100,omission:'...') %></p>
+              <ul>
+                  <li>Comments: <%= post.comments_counter || 0 %> </li>
+                  <li>Likes: <%= post.likes_counter || 0 %> </li>
+              </ul>
+            </div>
         <% end %>
-    </div>
+        <a href="/users/<%= @user.id %>/posts">
+            See all posts
+        </a>
+        <% else %>
+        <p>There are no posts yet</p>
+        
+        <% end %>
 
-    <a href='./<%= @user.id %>/posts'>asdasd</a>
+    </div>
   </div>
 
 </main>

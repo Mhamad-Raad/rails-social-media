@@ -18,8 +18,6 @@ second_post = Post.create(author_id: first_user, title: 'Hello again', text: 'Th
 third_post = Post.create(author_id: first_user, title: 'Hi', text: 'Whats up folks?', comments_counter: 0, likes_counter: 0)
 fourth_post = Post.create(author_id: second_user, title: 'See you later', text: 'With this, I say goodbye', comments_counter: 0, likes_counter: 0)
 
-#Comment.create(post_id: first_post.id, author: second_user, text: 'Hi Tom!')
-
 Comment.create(posts_id: third_post, text: 'Hi Tom!')
 Comment.create(posts_id: first_post, author_id: second_user, text: 'Interesting')
 Comment.create(posts_id: first_post, author_id: second_user, text: 'I dont agree')

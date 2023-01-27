@@ -13,22 +13,22 @@ second_user = User.create(  name: 'Lilly', photo: 'https://images.unsplash.com/p
 User.create(name: 'Cindy', bio: 'The blog Creator', posts_counter: 0,
             photo: 'https://picsum.photos/200')
 
-first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post', comments_count: 0, likes_count: 0)
-second_post = Post.create(author: first_user, title: 'Hello again', text: 'This is my second post. Welcome', comments_count: 0, likes_count: 0)
-third_post = Post.create(author: first_user, title: 'Hi', text: 'Whats up folks?', comments_count: 0, likes_count: 0)
-fourth_post = Post.create(author: second_user, title: 'See you later', text: 'With this, I say goodbye', comments_count: 0, likes_count: 0)
+first_post = Post.create(author_id: first_user, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+second_post = Post.create(author_id: first_user, title: 'Hello again', text: 'This is my second post. Welcome', comments_counter: 0, likes_counter: 0)
+third_post = Post.create(author_id: first_user, title: 'Hi', text: 'Whats up folks?', comments_counter: 0, likes_counter: 0)
+fourth_post = Post.create(author_id: second_user, title: 'See you later', text: 'With this, I say goodbye', comments_counter: 0, likes_counter: 0)
 
 #Comment.create(post_id: first_post.id, author: second_user, text: 'Hi Tom!')
 
-Comment.create(  post: third_post.id, text: 'Hi Tom!')
-# Comment.create(post: first_post, author: second_user, text: 'Interesting')
-# Comment.create(post: first_post, author: second_user, text: 'I dont agree')
-# Comment.create(post: first_post, author: second_user, text: 'I would like to know more')
-# Comment.create(post: first_post, author: second_user, text: 'Thanks for sharing')
-# Comment.create(post: first_post, author: second_user, text: 'Is that all?')
+Comment.create(posts_id: third_post, text: 'Hi Tom!')
+Comment.create(posts_id: first_post, author_id: second_user, text: 'Interesting')
+Comment.create(posts_id: first_post, author_id: second_user, text: 'I dont agree')
+Comment.create(posts_id: first_post, author_id: second_user, text: 'I would like to know more')
+Comment.create(posts_id: first_post, author_id: second_user, text: 'Thanks for sharing')
+Comment.create(posts_id: first_post, author_id: second_user, text: 'Is that all?')
 
 
-# Like.create(post: first_post, author: second_user)
-# Like.create(post: second_post, author: second_user)
-# Like.create(post: third_post, author: second_user)
-# Like.create(post: fourth_post, author: second_user)
+Like.create(posts_id: first_post, author_id: second_user)
+Like.create(posts_id: second_post, author_id: second_user)
+Like.create(posts_id: third_post, author_id: second_user)
+Like.create(posts_id: fourth_post, author_id: second_user)

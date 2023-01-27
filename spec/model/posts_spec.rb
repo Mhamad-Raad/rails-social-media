@@ -10,14 +10,14 @@ describe 'Post' do
       expect(my_model.valid?).to be_falsey
     end
 
-    it 'validates comments_count numericality' do
+    it 'validates comments_counter numericality' do
       user = User.create(name: 'hala', posts_counter:1)
       my_model = Post.new(title: 'hala',likes_counter: 1, comments_counter: 1, author_id: user.id)
 
       expect(my_model.valid?).to be_truthy
     end
 
-    it 'validates likes_count numericality' do
+    it 'validates likes_counter numericality' do
       my_model = Post.new(title: 'yoooo', likes_counter: 1, comments_counter: 1)
       expect(my_model.valid?).to be_falsey
     end

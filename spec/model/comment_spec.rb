@@ -9,7 +9,7 @@ describe 'Comment model' do
       expect(my_model.valid?).to be_falsey
     end
 
-    it 'validates post_id numericality' do
+    it 'validates posts_id numericality' do
       my_model = Comment.new(posts_id: -1, author_id: 0)
       expect(my_model.valid?).to be_falsey
     end

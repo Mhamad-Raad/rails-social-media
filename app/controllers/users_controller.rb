@@ -6,5 +6,6 @@ class UsersController < ApplicationController
 
   def detail
     @user = User.find(params[:user_id])
+    @posts = findby
   end
 end

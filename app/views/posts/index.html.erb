@@ -13,14 +13,10 @@
       </div>
       <div class="comments">
       <h3>comments</h3>
-        <% @comments.each do |comment| %>
-          <% if comment.post_id == post.id %>
-          <div class="comment">
-            <p><%= comment.user.name %>  <%= comment.text %></p>
-          </div>
-          <% end %>
-        <% end %>
-      </div>
+      <% post.five_most_recent_comments_for_post.each do |comment| %>
+        <p><%= comment.author.name %> : <%= comment.text %></p>
+    <% end %>
+    <br>
     <% end %>
   </div>
 </main>

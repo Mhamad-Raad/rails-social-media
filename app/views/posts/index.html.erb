@@ -1,1 +1,22 @@
-<h1>Posts Index</h1>
+<%= stylesheet_link_tag "posts" %>
+
+<main>
+  <div class="row1">
+    <img src=<%= @user.photo%> alt=<%= @user.photo%> />
+    <h1><%= @user.name %></h1>
+  </div>
+  <div class='posts'>
+    <% @posts.each do |post| %>
+      <div class="post">
+        <h2><%= post.title %></h2>
+        <p><%= post.text %></p>
+      </div>
+      <div class="comments">
+      <h3>comments</h3>
+      <% post.five_most_recent_comments_for_post.each do |comment| %>
+        <p><%= comment.author.name %> : <%= comment.text %></p>
+    <% end %>
+    <br>
+    <% end %>
+  </div>
+</main>

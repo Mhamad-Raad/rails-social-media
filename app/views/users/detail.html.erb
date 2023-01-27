@@ -1,2 +1,49 @@
-<h1>Users Detail<h1>
-<h1>Here is the user id route</h1>
+<%= stylesheet_link_tag "users_details" %>
+
+<main>
+  <div class="profile">
+    <div class="row1">
+      <img src=<%= @user.photo %> alt=<%= @user.photo %> />
+      <h1><%= @user.name %></h1>
+    </div>
+    <p> Posts Number: <%= @user.posts_counter %></p>
+    <div class="bio">
+      <h2>BIO</h2>
+      <p><%= @user.bio %></p>
+      <div>
+        
+        <% if @user.posts_counter = 0 %>
+        <h5>Posts</h5>
+        <br>
+        <% @user.last_three_posts_for_user.each.with_index(1) do |post, index| %>
+            <div class="post">
+              <h5>Post<%= "#" %> <%=index %> <%= post.title %></h5>
+              <p><%= post.text.truncate(100,omission:'...') %></p>
+              
+                  Comments: <%= post.comments_counter || 0 %> 
+                  Likes: <%= post.likes_counter || 0 %>
+              
+            </div>
+        <% end %>
+        <br>
+
+        <a href="/users/<%= @user.id %>/posts">
+            See all posts
+        </a>
+        <br>
+        <% else %>
+        <p>There are no posts yet</p>
+        
+        <% end %>
+
+    </div>
+    </div>
+
+    
+  </div>
+
+</main>
+
+
+
+

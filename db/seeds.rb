@@ -26,7 +26,7 @@ Comment.create(posts_id: first_post.id, author_id: second_user.id, text: 'Thanks
 Comment.create(posts_id: first_post.id, author_id: second_user.id, text: 'Is that all?')
 
 
-Like.create(posts_id: first_post, author_id: second_user)
-Like.create(posts_id: second_post, author_id: second_user)
-Like.create(posts_id: third_post, author_id: second_user)
-Like.create(posts_id: fourth_post, author_id: second_user)
+Like.create(posts_id: first_post.id, author_id: second_user.id)
+Like.create(posts_id: second_post.id, author_id: second_user.id)
+Like.create(posts_id: third_post.id, author_id: second_user.id)
+Like.create(posts_id: fourth_post.id, author_id: second_user.id)

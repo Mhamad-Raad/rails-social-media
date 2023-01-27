@@ -1,18 +1,10 @@
 class Like < ApplicationRecord
-  belongs_to :author, class_name: 'User'
-  belongs_to :posts
+  belongs_to :user, class_name: 'User', foreign_key: 'author_id'
+  belongs_to :post, class_name: 'Post', foreign_key: 'post_id'
 
-  validates :author_id, numericality: { greater_than_or_equal_to: 0 }
-  validates :post_id, numericality: { greater_than_or_equal_to: 0 }
+  after_create :update_likes_counter_for_post
 
-  after_save :update_post_like_count
-
-  def update_post_like_count
-    post = Post.find(post_id)
-
-    post.likes_count = 0 if post.likes_count.nil?
-
-    post.likes_count += 1
-    post.save
+  def update_likes_counter_for_post
+    post.increment!(:likes_counter)
   end
 end

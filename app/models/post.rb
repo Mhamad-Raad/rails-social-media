@@ -4,8 +4,8 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: 'posts_id'
 
   validates :title, presence: true, length: { maximum: 250 }
-  validates :comments_counter, numericality: {  greater_than_or_equal_to: 0 }
-  validates :likes_counter, numericality: {  greater_than_or_equal_to: 0 }
+  validates :comments_counter, numericality: { greater_than_or_equal_to: 0 }
+  validates :likes_counter, numericality: { greater_than_or_equal_to: 0 }
 
   after_create :update_posts_counter_for_user
 
@@ -14,7 +14,6 @@ class Post < ApplicationRecord
   end
 
   def five_most_recent_comments_for_post
-    temp = comments.order(created_at: :desc).limit(5)
-    temp
+    comments.order(created_at: :desc).limit(5)
   end
 end

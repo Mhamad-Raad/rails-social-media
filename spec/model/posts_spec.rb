@@ -4,15 +4,14 @@ require 'post'
 
 describe 'Post' do
   describe 'validations' do
-
     it 'validates presence of title' do
       my_model = Post.new(title: '', likes_counter: 1, comments_counter: 1)
       expect(my_model.valid?).to be_falsey
     end
 
     it 'validates comments_counter numericality' do
-      user = User.create(name: 'hala', posts_counter:1)
-      my_model = Post.new(title: 'hala',likes_counter: 1, comments_counter: 1, author_id: user.id)
+      user = User.create(name: 'hala', posts_counter: 1)
+      my_model = Post.new(title: 'hala', likes_counter: 1, comments_counter: 1, author_id: user.id)
 
       expect(my_model.valid?).to be_truthy
     end

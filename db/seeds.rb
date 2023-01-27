@@ -18,14 +18,17 @@ second_post = Post.create(author: first_user, title: 'Hello again', text: 'This 
 third_post = Post.create(author: first_user, title: 'Hi', text: 'Whats up folks?', comments_count: 0, likes_count: 0)
 fourth_post = Post.create(author: second_user, title: 'See you later', text: 'With this, I say goodbye', comments_count: 0, likes_count: 0)
 
-Comment.create(post: first_post, author: second_user, text: 'Hi Tom!')
-Comment.create(post: first_post, author: second_user, text: 'Interesting')
-Comment.create(post: first_post, author: second_user, text: 'I dont agree')
-Comment.create(post: first_post, author: second_user, text: 'I would like to know more')
-Comment.create(post: first_post, author: second_user, text: 'Thanks for sharing')
-Comment.create(post: first_post, author: second_user, text: 'Is that all?')
+#Comment.create(post_id: first_post.id, author: second_user, text: 'Hi Tom!')
 
-Like.create(post: first_post, author: second_user)
-Like.create(post: second_post, author: second_user)
-Like.create(post: third_post, author: second_user)
-Like.create(post: fourth_post, author: second_user)
+Comment.create(  post: third_post.id, text: 'Hi Tom!')
+# Comment.create(post: first_post, author: second_user, text: 'Interesting')
+# Comment.create(post: first_post, author: second_user, text: 'I dont agree')
+# Comment.create(post: first_post, author: second_user, text: 'I would like to know more')
+# Comment.create(post: first_post, author: second_user, text: 'Thanks for sharing')
+# Comment.create(post: first_post, author: second_user, text: 'Is that all?')
+
+
+# Like.create(post: first_post, author: second_user)
+# Like.create(post: second_post, author: second_user)
+# Like.create(post: third_post, author: second_user)
+# Like.create(post: fourth_post, author: second_user)

@@ -19,12 +19,12 @@ describe 'User Model' do
       expect(my_model.valid?).to be_truthy
     end
 
-    it 'validates posts_count numericality' do
+    it 'validates posts_counter numericality' do
       my_model = User.new(name: 'hala', posts_counter: -1)
       expect(my_model.valid?).to be_falsey
     end
 
-    it 'validates posts_count numericality' do
+    it 'validates posts_counter numericality' do
       my_model = User.new(name: 'hala', posts_counter: 1)
       expect(my_model.valid?).to be_truthy
     end

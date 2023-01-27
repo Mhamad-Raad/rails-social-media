@@ -2,10 +2,10 @@
 <main>
   <% @users.each do |user| %>
   <div class="user">
-  <img src=<%= user.ImgUrl  %> alt='<%= user.ImgUrl  %>' />
+  <img src=<%= user.photo  %> alt='<%= user.photo  %>' />
     <h1><%= user.name %></h1>
     <h2><%= user.bio %></h2>
-    <h3>Posts: <%= user.posts_count %></h3>
+    <h3>Posts: <%= user.posts_counter %></h3>
     <p>ID: <%= user.id%></p>
   </div>
   <% end %>

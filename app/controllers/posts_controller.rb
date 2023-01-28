@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     comment = Comment.new
     like = Like.new
     respond_to do |format|
-      format.html { render :show, locals: { comment: comment, like: like } }
+      format.html { render :show, locals: { comment:, like: } }
     end
   end
 
@@ -46,6 +46,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :text)
   end

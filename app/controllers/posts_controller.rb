@@ -5,21 +5,25 @@ class PostsController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @post = Post.where(author_id: current_user.id).find(params[:id])
+    @user = User.find(25)
+    @post = Post.find_by(id: params[:id], author_id: params[:user_id])
+    comment = Comment.new
+    like = Like.new
+    respond_to do |format|
+      format.html { render :show, locals: { comment: comment, like: like } }
+    end
   end
 
   def new
-    new_post = Post.new
+    @post = Post.new
     respond_to do |format|
-      format.html { render :new, locals: { post: new_post } }
+      format.html { render :new, locals: { post: @post } }
     end
   end
 
   def create
     @post = Post.new(post_params)
     @post.author_id = current_user.id
-    p current_user
     @post.comments_counter = 0
     @post.likes_counter = 0
 

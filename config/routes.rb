@@ -11,4 +11,10 @@ Rails.application.routes.draw do
   end
 
   resources :posts
+
+  resources :posts do
+    resources :comments
+  end
+  post '/posts/new', to: 'posts#create' #create_new_post
+
 end

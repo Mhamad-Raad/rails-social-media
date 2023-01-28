@@ -3,6 +3,11 @@
   <h1><%= @post.text %></h1>
   <p><%= @post.created_at %></p>
   <p>Likes: <%= @post.likes.length %> </p>
+  <%= form_with model: like, method: :post, url: user_post_likes_path(@post, @user), local: true, scope: :new_like do |form| %>
+    <%= form.submit "Like", class: "btn btn-primary" %>
+    <%= form.hidden_field :post_id, value: @post.id %>
+    <%= form.hidden_field :author_id, value: @user.id %>
+  <% end %>
   <section>
     <h2>Comments</h2>
       <% @post.comments.each do |comment| %>
@@ -10,7 +15,4 @@
           <p><%= comment.created_at %></p>
       <% end %>
   </section>
-
-
-
 </main>

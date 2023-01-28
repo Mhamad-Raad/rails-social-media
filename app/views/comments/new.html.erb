@@ -1,0 +1,11 @@
+<main>
+  <section>
+    <h2>ADD a comment</h2>
+      <%= form_with model: @comment, local: true, scope: :comment, url: user_post_comments_path(@user, @post), class: "my-form" do |form| %>
+        <%= form.text_area :text, placeholder: "Write your comment here", class: "my-text-area" %>
+        <%= form.hidden_field :post_id, value: @post.id %>
+        <%= form.hidden_field :author_id, value: @user.id %>
+      <%= form.submit class: "my-submit-button"%>
+  <% end %>
+  </section>
+</main>

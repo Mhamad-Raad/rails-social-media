@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
   def new
     @comment = Comment.new
-    @post = Post.new
+    @post = Post.find(params[:post_id])
+    @user = User.find(params[:user_id])
+
     respond_to do |format|
       format.html { render :new, locals: { post: @post } }
     end

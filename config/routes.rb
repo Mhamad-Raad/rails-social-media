@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :posts
   end
 
+  get '/posts/new', to: 'posts#new'
+
   post 'posts/create', "posts#create"
 end

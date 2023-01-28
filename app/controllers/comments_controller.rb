@@ -14,10 +14,14 @@ def create
     @comment.posts_id = comment_params[:post_id]
     if @comment.save
       flash[:notice] = 'Comment created successfully'
-      render :new
+      @post = Post.new
+      # redirect to the same page
+      redirect_to user_post_path(@comment.author_id, @comment.post.id)
+
+
     else
       flash.now[:alert] = 'Post creation failed'
-      redirect_to :ew
+      redirect_to user_post_path(@post.author_id)
     end
   end
 

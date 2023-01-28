@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   end
   post '/posts/new', to: 'posts#create' #create_new_post
 
+  resources :posts do 
+    resources :likes
+  end
+
 end

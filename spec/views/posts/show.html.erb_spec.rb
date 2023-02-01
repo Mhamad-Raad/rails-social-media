@@ -1,4 +1,4 @@
-equire 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe 'Post show', type: :feature do
   before(:each) do

@@ -9,9 +9,9 @@
     <%= form.hidden_field :author_id, value: @user.id %>
   <% end %>
   <section>
-    <h2>Comments</h2>
+    <h2>Comments <%= @post.comments_counter %></h2>
       <% @post.comments.each do |comment| %>
-          <p><%= comment.text %></p>
+          <p><%= comment.author.name %> <%= comment.text %></p>
           <p><%= comment.created_at %></p>
       <% end %>
   </section>

@@ -38,5 +38,4 @@ class CommentsController < ApplicationController
       format.html { redirect_back_or_to user_posts_path(current_user), notice: 'Deleted!' }
     end
   end
-
 end

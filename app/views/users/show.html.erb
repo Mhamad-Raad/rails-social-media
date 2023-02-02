@@ -3,7 +3,11 @@
 <main>
   <div class="profile">
     <div class="row1">
-      <img src=<%= @user.photo %> alt=<%= @user.photo %> />
+      <% if @user.photo %>
+      <%= image_tag @user.photo, width: 100 if @user.photo.attached? %>
+    <% else %>
+      <p> No image found </p>
+    <% end %>
       <h1><%= @user.name %></h1>
     </div>
     <p> Posts Number: <%= @user.posts_counter %></p>

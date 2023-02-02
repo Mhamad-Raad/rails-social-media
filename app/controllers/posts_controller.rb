@@ -16,9 +16,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    respond_to do |format|
-      format.html { render :new, locals: { post: @post } }
-    end
   end
 
   def create
@@ -27,22 +24,11 @@ class PostsController < ApplicationController
     @post.comments_counter = 0
     @post.likes_counter = 0
 
-    if @post.save
-      redirect_to @post
-    else
-      respond_to do |format|
-        format.html do
-          if @post.save
-            flash[:notice] = 'Post created successfully'
-            redirect_to users_path
-          else
-            Rails.logger.error(@post.errors.full_messages)
-            flash.now[:alert] = 'Post creation failed'
-            render :new, locals: { post: @post }
-          end
-        end
-      end
-    end
+    @post = Post.new(post_params)
+    @post.author = current_user
+
+    @post.save
+    redirect_to user_posts_path(current_user)
   end
 
   private

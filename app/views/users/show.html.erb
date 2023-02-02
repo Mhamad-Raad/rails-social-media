@@ -5,6 +5,7 @@
     <div class="row1">
       <img src=<%= @user.photo %> alt=<%= @user.photo %> />
       <h1><%= @user.name %></h1>
+      <%= link_to "Create a Post", new_post_path %>
     </div>
     <p> Posts Number: <%= @user.posts_counter %></p>
     <div class="bio">

@@ -73,7 +73,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-
-# rails active_storage:install
-# +524771100403

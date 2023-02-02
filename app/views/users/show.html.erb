@@ -15,9 +15,16 @@
       <h2>BIO</h2>
       <p><%= @user.bio %></p>
       <div>
+                <a href='/users/<%= @user.id %>/posts/new' >
         
-        <% if @user.posts_counter = 0 %>
+          Add a new post
+      
+      </a>
+        <% if @user.posts_counter != 0 %>
+        <br>
+        <br>
         <h5>Posts</h5>
+        
         <br>
         <% @user.last_three_posts_for_user.each.with_index(1) do |post, index| %>
             <div class="post">

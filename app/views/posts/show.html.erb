@@ -9,6 +9,11 @@
     <%= form.hidden_field :author_id, value: @user.id %>
   <% end %>
   <section>
+  <a href="/users/<%= @post.author_id %>/posts/<%= @post.id %>/comments/new">
+  Add acomment
+  </a>
+  <br>
+  <br>
     <h2>Comments <%= @post.comments_counter %></h2>
       <% @post.comments.each do |comment| %>
           <p><%= comment.author.name %> <%= comment.text %></p>

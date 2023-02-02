@@ -7,7 +7,7 @@
       <a href="/users/<%= user.id %>">
       <% if user.photo %>
               <%= image_tag user.photo, width: 100 if user.photo.attached? %>
-        <% else %>
+      <% else %>
               <p> No image found </p>
       <% end %>
         <h1><%= user.name %></h1>
@@ -16,5 +16,5 @@
         <p>ID: <%= user.id%></p>
       </a>
     </div>
+    <% end %>
   </main>
-<% end %>

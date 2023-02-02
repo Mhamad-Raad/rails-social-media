@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def detail
-    @user = User.find(params[:user_id])
+  def show
+    @user = User.includes(:posts).find(params[:id])
   end
 end

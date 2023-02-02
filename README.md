@@ -1,45 +1,9 @@
-<a name="readme-top"></a>
-
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
-
-Modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-OPTIONAL SECTIONS:
-- FAQ
-
-After you're finished please remove all the comments and instructions!
--->
-
-<div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
-  <h3><b>Microverse README Template</b></h3>
-
-</div>
-
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Catalog of Things ](#-catalog-of-things-)
+- [📖 blog\_app ](#-blog_app-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -56,34 +20,30 @@ After you're finished please remove all the comments and instructions!
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [❓ FAQ ](#-faq-)
   - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Rails Social Media <a name="about-project"></a>
+# 📖 blog_app <a name="about-project"></a>
 
-> in this rails project I will be making a small social media in which people can like, comment and share posts
-
-**Rails Social Media** is an app in which you can share posts and other users including yoursel can like and comment, each user has their own profile in which shows some details about the user including the posts.
+**blog_app** is a website built with rails, it allows the user to make posts, like and comment posts.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Tech stack and relevant sections that apply to the project.
-
 <details>
-  <summary>Client</summary>
+  <summary>Programming Language</summary>
   <ul>
-    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
-    <li><a href="https://rubyonrails.org/">Rails</a></li>
+    <li><a href="https://www.ruby-lang.org">Ruby</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li>N/A</li>
+    <li><a href="https://rubyonrails.org/">Rails</a></li>
   </ul>
 </details>
 
@@ -98,21 +58,18 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-> 1-3 key features of the application.
-
-- **Record Posts**
-- **Record Users**
-- **Record Comments**
+- **Allows the user to create a post**
+- **Allows the user to comment a post**
+- **Allows the user to like a post**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
+Not yet available
 
-> Link to the deployed project.
-
-- N/A
+<!--- [Live Demo Link](https://yourdeployedapplicationlink.com) -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -120,59 +77,67 @@ After you're finished please remove all the comments and instructions!
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> To get a local copy up and running, follow these steps.
+To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
+In order to run this project you need to have installed Ruby, Rails and PostgreSQL all the links are in [Tech Stack ](#tech-stack-) section.
 
-```
- gem install rails
-```
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-```
+
+```sh
   cd my-folder
-  git clone https://github.com/didierganthier/ruby-group-capstone
+  git clone git@github.com:OscarFMdev/blog_app.git
 ```
+
 
 ### Install
 
 Install this project with:
 
-```
-  cd rails-social-media
-  bundle install
+
+Example command:
+
+```sh
+  cd my-project
+  gem install
 ```
 
 ### Usage
 
 To run the project, execute the following command:
 
-```
-  rails s
-```
+Example command:
 
---->
+```sh
+  rails server
+```
 
 ### Run tests
 
 To run tests, run the following command:
 
-```
-  rspec spec/app_spec.rb
+
+```sh
+  bin/rails test
 ```
 
---->
 
 ### Deployment
 
-You can deploy this project using:
+Not yet available
 
-- N/A
+<!--
+Example:
+
+```sh
+
+```
+ -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -180,7 +145,13 @@ You can deploy this project using:
 
 ## 👥 Authors <a name="authors"></a>
 
-> All of the collaborators of this project.
+
+👤 **Author1: Oscar Fernández Muñoz**
+
+- GitHub: [@OscarFMdev](https://github.com/OscarFMdev)
+- Twitter: [@OscarFMdev](https://twitter.com/OscarFMdev)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/OscarFMdev)
+
 
 👤 **Mhamad Raad**
 
@@ -193,10 +164,8 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> 1 - 3 features to add to the project.
-
-- [ ] **Share Posts**
-- [ ] **Login and Signup**
+- [ ] **Improve the UI of the application**
+- [ ] **Deploy the project**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -214,9 +183,8 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> A message to encourage readers to support the project
 
-If you like this project and want to support it, please give it a ⭐️!
+If you like this project please give it a start ⭐️.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -224,11 +192,21 @@ If you like this project and want to support it, please give it a ⭐️!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Giving credit to everyone who inspired the codebase.
+I would like to thank the Ruby and Rails community for making the documentation simple and easy to use.
 
-I would like to thank:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- [Microverse](https://www.microverse.org/)
+<!-- FAQ (optional) -->
+
+## ❓ FAQ <a name="faq"></a>
+
+- **How can I let you know about a bug?**
+
+  - You could add an issue on the issues tab.
+
+- **How can I contribute**
+
+  - Kindly send a message to see how you could help us.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

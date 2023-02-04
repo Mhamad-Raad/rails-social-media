@@ -1,10 +1,13 @@
 <%= stylesheet_link_tag "posts" %>
 <main>
   <h1><%= @post.text %></h1>
-  <% if can? :destroy, Post %>
-    <%= form_with model: Post, url: post_path, method: :delete do |form| %>
-      <%= form.submit "Delete Post", class: "see" %>
-    <% end %>
+  <p><%= @user.role %></p>
+  <% if can? :destroy, @post %>
+    <%= link_to 'Delete', post_delete_path(user_id: @user.id, id: @post.id), data: { 
+        turbo_method: :delete, 
+        confirm: 'Are you sure?' 
+        } 
+      %>
   <% end %>
   <p><%= @post.created_at %></p>
   <p>Likes: <%= @post.likes.length %> </p>
@@ -20,11 +23,6 @@
   <br>
   <br>
     <h2>Comments <%= @post.comments_counter %></h2>
-    <% if can? :destroy, comment %>
-          <%= form_with model: comment,url user_post_comment_path, method: :delete do |form| %>
-            <%= form.submit "Delete comment", class: "see" %>
-          <% end %>
-        <% end %>
       <% @post.comments.each do |comment| %>
           <p><%= comment.author.name %> <%= comment.text %></p>
           <p><%= comment.created_at %></p>

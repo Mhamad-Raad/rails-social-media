@@ -9,10 +9,19 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  after_create :generate_api_token
+
   validates :name, presence: true
   validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def last_three_posts_for_user
     posts.limit(3)
+  end
+
+   private
+
+  def generate_api_token
+    self.api_token = Devise.friendly_token
+    save
   end
 end

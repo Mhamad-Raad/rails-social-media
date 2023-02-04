@@ -6,7 +6,7 @@
     <%= link_to 'Delete', post_delete_path(user_id: @user.id, id: @post.id), data: { 
         turbo_method: :delete, 
         confirm: 'Are you sure?' 
-        } 
+        }
       %>
   <% end %>
   <p><%= @post.created_at %></p>

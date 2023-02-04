@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html {redirect_back_or_to user_postspath(current_user), notice: 'Deleted'}
+      format.html {redirect_back_or_to user_posts_path(current_user), notice: 'Deleted'}
     end
   end
 

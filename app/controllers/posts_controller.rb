@@ -32,7 +32,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    p 'kljsdbflkjcbadnak;jnvjansdblhablvjbadslgvn;jakgn;ibsdf;hD af;da;dfnD;KJS'
     @post = Post.find(params[:id]).destroy
     redirect_to user_path(current_user.id), notice: 'Post deleted successfully'
   end

@@ -11,8 +11,8 @@ class Ability
     can :manage, Post, author_id: user.id
     can :manage, Comment, author_id: user.id
 
-    if user.role == 'admin'
-      can :manage, :all
-    end
+    return unless user.role == 'admin'
+
+    can :manage, :all
   end
 end

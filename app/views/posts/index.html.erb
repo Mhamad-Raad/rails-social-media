@@ -22,6 +22,12 @@
       <div class="comments">
       <h3>Comments: <%= post.comments_counter %> </h3>
       <% post.five_most_recent_comments_for_post.each do |comment| %>
+      <% if can? :destroy, post %>
+        <%= link_to 'Delete', user_post_comment_path(user_id: post.author_id, post_id: post.id, id: comment.id), data: { 
+        turbo_method: :delete, 
+        confirm: 'Are you sure?' 
+        }%>
+      <% end %>
         <p><%= comment.author.name %> : <%= comment.text %></p>
     <% end %>
     <h3>Likes: <%= post.likes_counter %> </h3>

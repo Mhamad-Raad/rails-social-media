@@ -14,12 +14,13 @@
     <div class="bio">
       <h2>BIO</h2>
       <p><%= @user.bio %></p>
-      <div>
-                <a href='/users/<%= @user.id %>/posts/new' >
-        
-          Add a new post
       
-      </a>
+      <% if can? :manage, @post %>
+        <div>
+          <a href='/users/<%= @user.id %>/posts/new' >
+            Add a new post
+          </a>
+      <% end %>
         <% if @user.posts_counter != 0 %>
         <br>
         <br>

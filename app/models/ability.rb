@@ -4,12 +4,12 @@ class Ability
   def initialize(user)
     user ||= User.new
 
+    return unless user.present? # logged in user permissions (read and delete their own POST and COMMENTS)
+
     can :read, :all
-    can :create, Comment
-    can :create, Post
-    can :update, Post, author_id: user.id
-    can :delete, Post, author_id: user.id
-    can :destroy, Comment, author_id: user.id
+    can :manage, User, id: user.id
+    can :manage, Post, author_id: user.id
+    can :manage, Comment, author_id: user.id
 
     if user.role == 'admin'
       can :manage, :all

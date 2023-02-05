@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag "users" %>
+<main>
+<%= link_to "Log Out", logout_path %>
+  <% @users.each do |user| %>
+    # link to a user details
+    <div class="user">
+      <a href="/users/<%= user.id %>">
+      <% if user.photo %>
+              <%= image_tag user.photo, width: 100 if user.photo.attached? %>
+      <% else %>
+              <p> No image found </p>
+      <% end %>
+        <h1><%= user.name %></h1>
+        <h2><%= user.bio %></h2>
+        <h3>Posts: <%= user.posts_counter %></h3>
+        <p>ID: <%= user.id%></p>
+      </a>
+    </div>
+    <% end %>
+  </main>

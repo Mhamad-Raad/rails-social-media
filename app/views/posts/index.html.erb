@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag "posts" %>
+
+<main>
+  <div class="row1">
+    <% if @user.photo %>
+      <%= image_tag @user.photo, width: 100 if @user.photo.attached? %>
+    <% else %>
+      <p> No image found </p>
+    <% end %>
+    <h1><%= @user.name %></h1>
+    <h2>Number of posts: <%= @user.posts_counter %></h2>
+  </div>
+  <div class='posts'>
+    <% @posts.each_with_index do |post, index| %>
+      <div class="post">
+      <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+          Post #<%= index+1 %>
+        </a>
+        <h2><%= post.title %></h2>
+        <p><%= post.text %></p>
+      </div>
+      <div class="comments">
+      <h3>Comments: <%= post.comments_counter %> </h3>
+      <% post.five_most_recent_comments_for_post.each do |comment| %>
+      <% if can? :destroy, post %>
+        <%= link_to 'Delete', user_post_comment_path(user_id: post.author_id, post_id: post.id, id: comment.id), data: { 
+        turbo_method: :delete, 
+        confirm: 'Are you sure?' 
+        }%>
+      <% end %>
+        <p><%= comment.author.name %> : <%= comment.text %></p>
+    <% end %>
+    <h3>Likes: <%= post.likes_counter %> </h3>
+    <br>
+    <% end %>
+  </div>
+</main>

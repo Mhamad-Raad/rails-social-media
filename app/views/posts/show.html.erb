@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag "posts" %>
+<main>
+  <h1><%= @post.text %></h1>
+  <p><%= @user.role %></p>
+  <% if can? :destroy, @post %>
+    <%= link_to 'Delete', post_delete_path(user_id: @user.id, id: @post.id), data: { 
+        turbo_method: :delete, 
+        confirm: 'Are you sure?' 
+        } 
+      %>
+  <% end %>
+  <p><%= @post.created_at %></p>
+  <p>Likes: <%= @post.likes.length %> </p>
+  <%= form_with model: like, method: :post, url: user_post_likes_path(@post, @user), local: true, scope: :new_like do |form| %>
+    <%= form.submit "Like", class: "btn btn-primary" %>
+    <%= form.hidden_field :post_id, value: @post.id %>
+    <%= form.hidden_field :author_id, value: @user.id %>
+  <% end %>
+  <section>
+  <a href="/users/<%= @post.author_id %>/posts/<%= @post.id %>/comments/new">
+  Add acomment
+  </a>
+  <br>
+  <br>
+    <h2>Comments <%= @post.comments_counter %></h2>
+      <% @post.comments.each do |comment| %>
+          <p><%= comment.author.name %> <%= comment.text %></p>
+          <p><%= comment.created_at %></p>
+      <% end %>
+  </section>
+</main>
